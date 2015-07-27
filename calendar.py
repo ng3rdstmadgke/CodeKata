@@ -12,41 +12,46 @@ def days(year,month):
     month_days=date_2-date_1
     return month_days.days
 
-#カレンダーリストの関数
+#カレンダーリストを作る関数
 def calendar_list(days,weekday):
     a=[]
     for i in range(1,days+1):
         if i<10:
-            a.append(str(i)+" ")
+            a.append(" "+str(i))
         else:
             a.append(str(i))
     b=[]
-    for i in range(1,weekday):
-        b.append("0 ")
+    for i in range(weekday):
+        b.append("  ")
     b.extend(a)
     for i in range(42-len(b)):
-        b.append("0 ")
+        b.append("  ")
     return b
 
 #求めたいカレンダーの年と月を入力
 year=int(input("西暦を入力してください："))
 month=int(input("月を入力してください："))
 date=datetime.date(year,month,1)
+
 #入力年月の日数を計算する(関数で作成)
 days=days(year,month)
 #print(days)
+
 #入力年月の1日の曜日を求める
 weekday=date.weekday()
 #print(weekday)
-#カレンダーリストを作成(関数)
+
+#カレンダーリストを作成(関数で作成)
 calendar_list=calendar_list(days,weekday)
 #print(calendar_list)
 
-#カレンダーの整形と表示
+#カレンダーの整形
+print("\n{}年{}月のカレンダー".format(year,month))
+print("月 火 水 木 金 土 日")
 calendar=[]
 for i in range(6):
-    calendar.append(calendar_list[7*i:7*(i+1)])
-print("\n{}年{}月のカレンダー".format(year,month))
-print(["月","火","水","木","金","土","日"])
-for i in range(6):
-    print(calendar[i])
+    calendar_str = ""
+    for j in calendar_list[7*i:7*(i+1)]:
+        calendar_str += j + " "
+    #カレンダーの表示
+    print(calendar_str)
