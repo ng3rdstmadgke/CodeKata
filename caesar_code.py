@@ -24,15 +24,15 @@ def decode(dict,code):
             str+=i
     return str
 
+if __name__=="__main__":
+    #暗号文を入力
+    code=input("暗号を入力してください：")
 
-#暗号文を入力
-code=input("暗号を入力してください：")
-
-for i in range(1,31):
-    #暗号鍵を基にしたディクショナリーを作成(関数で作成）
-    key_dict=code_dict(i)
-    #暗号文をディクショナリーに代入して解読(関数で作成）
-    answer=decode(key_dict,code)
-    #出力
-    print(answer,end="\n\n")
+    for i in range(1,31):
+        #暗号鍵を基にしたディクショナリーを作成(関数で作成）
+        key_dict=code_dict(i)
+        #暗号文をディクショナリーに代入して解読(関数で作成）
+        answer=decode(key_dict,code)
+        #出力
+        print(answer,end="\n\n")
 
