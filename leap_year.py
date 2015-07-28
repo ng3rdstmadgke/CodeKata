@@ -1,8 +1,7 @@
 __author__ = 'midorikawa.keita'
 import sys
 # -*- coding: utf-8 -*-
-input=sys.stdin.readline()
-year=int(input)
+
 
 def leap_year(n):
     flg=False
@@ -14,4 +13,9 @@ def leap_year(n):
         flg=True
     return flg
 
-print(leap_year(year))
+if __name__ == "__main__":
+    input_year=int(sys.stdin.readline())
+    if leap_year(input_year)==True:
+        print("うるう年です。")
+    else:
+        print("うるう年ではありません。")
