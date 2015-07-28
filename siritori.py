@@ -6,11 +6,11 @@ import random
 #プレイヤーの単語をジャッジ
 def player_judge(word_now,word_before,used_list):
     flg=0
-    #if　すでに使った単語を使用していないか→TorF
+    #if　すでに使った単語を使用していないか
     if used_list.count(word_now)!=0:
         #フラグ1
         flg=1
-    #if　前の単語の末尾の文字が自分の単語の先頭に来ているか→TorF→先攻がCPUのときのみ作動するようにする。
+    #if　前の単語の末尾の文字が自分の単語の先頭に来ているか
     if word_now[0]!=word_before[-1]:
         #フラグ2
         flg=2
@@ -72,6 +72,9 @@ def game_result(win_lose,player_word,used_list):
         print("まいりました！あなたの勝ちです。今回のしりとりでは"+str(len(used_list))+"個の単語を使用しました")
 
 
+
+
+
 if __name__ == "__main__":
     #cpuが使用する辞書を作成
     cpu_dict=["abc","ac","cde","efg","ghi","ijk","klm","mno","opq","qrs","stu","uvw","wxy","yza"]
@@ -105,7 +108,7 @@ if __name__ == "__main__":
             cpu_word=cpu_act(player_word,cpu_dict)
             #入力した単語を使用済み単語リストに追加
             dict_update(cpu_word,cpu_dict,used_list)
-            #フラグが0以外だったらbreak
+            #cpuが使う言葉がなかったらbreak
             if cpu_word==0:
                 win_lose=3
                 break
@@ -135,7 +138,7 @@ if __name__ == "__main__":
             dict_update(player_word,cpu_dict,used_list)
             #cpu_dictの中に単語が残っているか
             word_left(cpu_dict)
-            #フラグが0以外だったらbreak
+            #cpuが使う言葉がなかったらbreak
             if win_lose!=0:
                 break
     #出力
