@@ -1,15 +1,18 @@
 __author__ = 'le-user'
 # -*- coding: utf-8 -*-
-def fizzbuzz(number):
-    for num in range(1,number+1):
-        if num%3==0:
-            print("Fizz",end="")
-        if num%5==0:
-            print("Buzz",end="")
-        if num%3!=0 and num%5!=0:
-            print(num,end="")
-        print(" ",end="")
+def fizzbuzz(num):
+    i=""
+    if num%3==0:
+        i+="Fizz"
+    if num%5==0:
+        i+="Buzz"
+    if num%3!=0 and num%5!=0:
+        i+=str(num)
+    return i
 
-input=input("数字を入力してください")
-n=int(input)
-print(fizzbuzz(n))
+if __name__ == "__main__":
+    n=int(input("数字を入力してください"))
+
+if __name__ == "__main__":
+    for i in range(1,n+1):
+        print(fizzbuzz(i),end=" ")
