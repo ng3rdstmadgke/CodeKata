@@ -3,11 +3,15 @@ import sys
 # -*- coding: utf-8 -*-
 def func(str):
     list=str.split(" ")
+    num=""
     for i in range(len(list)):
         if i==0:
-            print(list[0],end=" ")
+            digits=list[0]
         else:
-            print("0",end=" ")
+            digits="0"
+        num+=digits
+    return num
 
-input=input("スペース区切りで値を入力して下さい：")
-func(input)
+if __name__=="__main__":
+    input=input("スペース区切りで値を入力して下さい：")
+    print(func(input))
