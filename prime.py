@@ -2,7 +2,7 @@ __author__ = 'le-user'
 import sys
 # -*- coding: utf-8 -*-
 
-def prime(n):
+def my_prime(n):
     flg=True
     if n<2:
         flg=False
@@ -13,13 +13,10 @@ def prime(n):
                 flg=False
     return flg
 
-input=sys.stdin.readline()
-n=int(input)
-for i in range(1,n+1):
-   print(i,end=" ")
-   print(prime(i))
+if __name__ == "__main__":
+    n=int(sys.stdin.readline())
 
-
-
-
-
+    if my_prime==True:
+        print("{}は素数です。".format(prime(n)))
+    else:
+        print("{}は素数ではありません。".format(prime(n)))
