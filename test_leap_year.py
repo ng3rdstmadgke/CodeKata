@@ -8,6 +8,10 @@ class leap_year_TestCase(unittest.TestCase):
         leap_year.leap_year(2016)
         self.assertEqual(True,True)
 
+    def test_4の倍数じゃない(self):
+        leap_year.leap_year(89)
+        self.assertEqual(False,False)
+
     def test_100の倍数(self):
         leap_year.leap_year(1900)
         self.assertEqual(False,False)
