@@ -87,8 +87,9 @@ if __name__ == "__main__":
     #if turn==0
     if turn==0:
         #cpuが単語をランダム選択
-        cpu_word=random.choice(used_list)
+        cpu_word=random.choice(cpu_dict)
         dict_update(cpu_word,cpu_dict,used_list)
+        print(cpu_word)
         #しりとりループ
 
         while True:
@@ -115,7 +116,7 @@ if __name__ == "__main__":
             print(cpu_word)
 
     #else:
-    else:
+    elif turn==1:
         #自分で単語を入力
         player_word=input("あなたのターンです：")
         #しりとりループ
