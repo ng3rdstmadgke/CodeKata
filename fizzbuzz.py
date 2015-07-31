@@ -13,6 +13,5 @@ def fizzbuzz(num):
 if __name__ == "__main__":
     n=int(input("数字を入力してください"))
 
-if __name__ == "__main__":
     for i in range(1,n+1):
         print(fizzbuzz(i),end=" ")
