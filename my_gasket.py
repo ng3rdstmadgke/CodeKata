@@ -1,10 +1,5 @@
 __author__ = 'midorikawa'
 import turtle
-def sankaku(n,t):
-    for i in range(3):
-        t.fd(n)
-        t.left(120)
-
 
 def gasket(n,length,t):
     if n>1:
@@ -35,9 +30,6 @@ def gasket(n,length,t):
         t.left(180)
         t.fd(length)
         t.right(60)
-
-
-
 
 if __name__=="__main__":
     t=turtle.Turtle()
