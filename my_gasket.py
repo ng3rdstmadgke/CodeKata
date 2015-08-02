@@ -15,19 +15,28 @@ def go_point(x,y,t):
     t.pendown()
 
 def gasket(n,length,t):
-    if n+1>0:
+    if n>1:
         gasket(n-1,length,t)
-        go_point(length*2**n,0,t)
+        go_point(length*(n-2),0,t)
+        t.fd(length*2**(n-1))
         gasket(n-1,length,t)
-        go_point(length/2*n,length*n/2*(3**0.5),t)
+        go_point(length*(n-2),0,t)
+        t.left(60)
+        t.fd(length*2**(n-1))
+        t.right(60)
         gasket(n-1,length,t)
-        go_point(length*2**n,0,t)
-    if n+1==0:
+    if n==1:
+        sankaku(length,t)
+        t.fd(length)
+        sankaku(length,t)
+        t.left(120)
+        t.fd(length)
+        t.right(120)
         sankaku(length,t)
 
 
 
 if __name__=="__main__":
     t=turtle.Turtle()
-    gasket(1,10,t)
+    gasket(3,10,t)
 
