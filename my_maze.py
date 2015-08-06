@@ -24,12 +24,23 @@ import sys
 ## ## ##+#
 ########+#
 """
-maze_list=[]
-for i in range(10):
-    input=sys.stdin.readline().rstrip("\n")
-    input_line=input.replace(" ","+")
-    input_list=list(input_line)
-    maze_list.append(input_list)
+
+def make_maze(maze_list):
+    for i in range(len(maze_list)):
+        for j in range(len(maze_list[i])):
+            if
 
 
-print(maze_list)
+
+if __name__=="__main__":
+    maze_list=[]
+    while True:
+        input=sys.stdin.readline().rstrip("\n")
+        if input:
+            input_line=input.replace(" ","+")
+            input_list=list(input_line)
+            maze_list.append(input_list)
+        else:
+            break
+
+
