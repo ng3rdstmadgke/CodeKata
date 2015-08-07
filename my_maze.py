@@ -32,8 +32,30 @@ import sys
     #３方向が"#"または" "に囲まれているマスを" "に置換
 list=[]
 while True:
-    i=sys.stdin.readline().rstrip()
-    if len(i)==0:
+    input=sys.stdin.readline().rstrip()
+    if len(input)==0:
         break
+    i=input.replace(" ","+")
     list.append(i)
+print(list[0][2])
+print(list)
+while True:
+    break_num=0
+    for i in range(len(list)):
+        j_num=0
+        for n in range(len(list[i])):
+            if i!=0 and i!=len(list)-1 and n!=0 and n!=len(list[0])-1 and list[i][n]=="+":
+                if list[i-1][n]=="#":
+                    j_num+=1
+                if list[i][n-1]=="#":
+                    j_num+=1
+                if list[i][n+1]=="#":
+                    j_num+=1
+                if list[i+1][n]=="#":
+                    j_num+=1
+                if j_num>2:
+                    break_num+=1
+                    update_line=str(list[i])
+    if break_num==0:
+        break
 print(list)
