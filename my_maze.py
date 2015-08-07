@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 __author__ = 'midorikawakeita'
+=======
+__author__ = 'midorikawa'
+>>>>>>> origin/master
 import sys
 """
 入力例
@@ -14,6 +18,7 @@ import sys
 ######## #
 出力例
 #+########
+<<<<<<< HEAD
 #+##0###0#
 #++++##00#
 ####+000##
@@ -59,3 +64,35 @@ while True:
     if break_num==0:
         break
 print(list)
+=======
+#+## ### #
+#++++##  #
+####+   ##
+# ##+#####
+#++++#+++#
+#+####+#+#
+#++++++#+#
+## ## ##+#
+########+#
+"""
+
+def make_maze(maze_list):
+    for i in range(len(maze_list)):
+        for j in range(len(maze_list[i])):
+            if
+
+
+
+if __name__=="__main__":
+    maze_list=[]
+    while True:
+        input=sys.stdin.readline().rstrip("\n")
+        if input:
+            input_line=input.replace(" ","+")
+            input_list=list(input_line)
+            maze_list.append(input_list)
+        else:
+            break
+
+
+>>>>>>> origin/master
