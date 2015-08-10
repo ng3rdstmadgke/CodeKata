@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 __author__ = 'midorikawakeita'
-=======
-__author__ = 'midorikawa'
->>>>>>> origin/master
+
 import sys
 """
 入力例
@@ -35,64 +32,33 @@ import sys
     #迷路の入力→入力形式は行列（迷路は"#"と" "で構成）
     #" "の部分をすべて+に置換
     #３方向が"#"または" "に囲まれているマスを" "に置換
-list=[]
+list_l=[]
 while True:
-    input=sys.stdin.readline().rstrip()
+    input=sys.stdin.readline().strip()
     if len(input)==0:
         break
-    i=input.replace(" ","+")
-    list.append(i)
-print(list[0][2])
-print(list)
+    input_plus=input.replace(" ","+")
+    list_s=[]
+    for i in input_plus:
+        list_s.append(i)
+    list_l.append(list_s)
+print(list_l)
+
 while True:
     break_num=0
-    for i in range(len(list)):
+    for i in range(len(list_l)):
         j_num=0
-        for n in range(len(list[i])):
-            if i!=0 and i!=len(list)-1 and n!=0 and n!=len(list[0])-1 and list[i][n]=="+":
-                if list[i-1][n]=="#":
+        for n in range(len(list_l[i])):
+            if i!=0 and i!=len(list_l)-1 and n!=0 and n!=len(list_l[0])-1 and list_l[i][n]=="+":
+                if list_l[i-1][n]=="#":
                     j_num+=1
-                if list[i][n-1]=="#":
+                if list_l[i][n-1]=="#":
                     j_num+=1
-                if list[i][n+1]=="#":
+                if list_l[i][n+1]=="#":
                     j_num+=1
-                if list[i+1][n]=="#":
+                if list_l[i+1][n]=="#":
                     j_num+=1
                 if j_num>2:
-                    break_num+=1
-                    update_line=str(list[i])
+                    list_l[i][n]=" "
     if break_num==0:
         break
-print(list)
-=======
-#+## ### #
-#++++##  #
-####+   ##
-# ##+#####
-#++++#+++#
-#+####+#+#
-#++++++#+#
-## ## ##+#
-########+#
-"""
-
-def make_maze(maze_list):
-    for i in range(len(maze_list)):
-        for j in range(len(maze_list[i])):
-            if
-
-
-
-if __name__=="__main__":
-    maze_list=[]
-    while True:
-        input=sys.stdin.readline().rstrip("\n")
-        if input:
-            input_line=input.replace(" ","+")
-            input_list=list(input_line)
-            maze_list.append(input_list)
-        else:
-            break
-
-
->>>>>>> origin/master
