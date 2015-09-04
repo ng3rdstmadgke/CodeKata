@@ -35,11 +35,10 @@ __author__ = 'midorikawakeita'
 ２読み込んだ文字が＋だったら．に変換
 ３処理１に戻る
 """
-# 与えられた標準入力をスペース区切りでリスト化しそれぞれheight,width,islandに代入する。
-# islandをheight×widthの行列形式のリストにする。
-# 「#」に出会ったら、隣接している島を「+」に変換し
+
 class my_island:
-    # 初期化メソッドheight(int),width(int),map(str)(list)を作成
+
+    """初期化メソッドheight(int),width(int),map(str)(list)を作成"""
     def __init__(self, input):
         self._input_list = input.split(" ")
         self.height = int(self._input_list[0])
@@ -49,6 +48,18 @@ class my_island:
         for i in range(len(self.map_str) // self.width):
             map_l=list(self.map_str[self.width*i:self.width*(i+1)])
             self.map_list.append(map_l)
+
+
+    """処理１：リストを順に読み込み「#」を「+」に変換。変換後のリストを戻す"""
+    def is_rec(self):
+        for i in range(self.height):
+            for j in range(self.width):
+                masu=self.map_list[i][j]
+                if masu == "#" :
+                    self.map_list[i][j] = "+"
+                    return self.map_list
+
+    """処理２：処理１で変換したリストを引数にとる。左上から順に読み込み、＋を読み込んだら上下左右のマスを＋に変換"""
 
 
 
