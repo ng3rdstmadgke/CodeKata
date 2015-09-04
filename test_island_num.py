@@ -16,6 +16,12 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(island_init.map_str , "##...##.#...#..###.....#.###..")
         self.assertEqual(island_init.map_list , [['#', '#', '.', '.', '.', '#'], ['#', '.', '#', '.', '.', '.'], ['#', '.', '.', '#', '#', '#'], ['.', '.', '.', '.', '.', '#'], ['.', '#', '#', '#', '.', '.']])
 
+    def test_処理１(self):
+        island_init=island_num.my_island("5 6 ##...##.#...#..###.....#.###..")
+        my_rec=island_init.is_rec()
+        print("置換後の行列：{}".format(my_rec))
+        self.assertEqual(my_rec , [['+', '#', '.', '.', '.', '#'], ['#', '.', '#', '.', '.', '.'], ['#', '.', '.', '#', '#', '#'], ['.', '.', '.', '.', '.', '#'], ['.', '#', '#', '#', '.', '.']])
+
 
 
 if __name__ == '__main__':
