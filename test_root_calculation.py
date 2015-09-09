@@ -23,16 +23,57 @@ class MyTestCase(unittest.TestCase):
         print("68の素因数は{}".format(list_b))
         list_c = a.prime_factor(38,[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
         print("38の素因数は{}".format(list_c))
-        list_d = a.prime_factor(67,[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
+        list_d = a.prime_factor(72,[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
         print("67の素因数は{}".format(list_d))
         list_e = a.prime_factor(91,[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
         print("91の素因数は{}".format(list_e))
         list_f = a.prime_factor(59,[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
         print("59の素因数は{}".format(list_f))
-        self.assertEqual(1,1)
+        self.assertEqual(list_b,[2, 2, 17])
+        self.assertEqual(list_c,[2, 19])
+        self.assertEqual(list_d,[2, 2, 2, 3, 3])
+        self.assertEqual(list_e,[7, 13])
+        self.assertEqual(list_f,[59])
 
-    def test_(self):
-        self.assertEqual(1,1)
+    def test_重複リストを作成(self):
+        a = root_calculation.Root_form(100)
+        list_a = a.duplicate_check([2, 2, 17])
+        print("[68, 2, 2, 17] : {}".format(list_a))
+        list_b = a.duplicate_check([2, 19])
+        print("[38, 2, 19] : {}".format(list_b))
+        list_c = a.duplicate_check([2, 2, 2, 3, 3])
+        print("[72, 2, 2, 2, 3, 3] : {}".format(list_c))
+        list_d = a.duplicate_check([7, 13])
+        print("[91, 7, 13] : {}".format(list_d))
+        list_e = a.duplicate_check([59])
+        print("[59, 59] : {}".format(list_e))
+        self.assertEqual(list_a,[[2, 2], [17, 1]])
+        self.assertEqual(list_b,[[2, 1], [19, 1]])
+        self.assertEqual(list_c,[[2, 3], [3, 2]])
+        self.assertEqual(list_d,[[7, 1], [13, 1]])
+        self.assertEqual(list_e,[[59, 1]])
+
+    def test_ルートを計算(self):
+        a = root_calculation.Root_form(100)
+        list_a = a.root_result([[2, 2], [17, 1]])
+        print("[68, 2, 2, 17] : {}".format(list_a))
+        list_b = a.root_result([[2, 1], [19, 1]])
+        print("[38, 2, 19] : {}".format(list_b))
+        list_c = a.root_result([[2, 3], [3, 2]])
+        print("[72, 2, 2, 2, 3, 3] : {}".format(list_c))
+        list_d = a.root_result([[7, 1], [13, 1]])
+        print("[91, 7, 13] : {}".format(list_d))
+        list_e = a.root_result([[59, 1]])
+        print("[59, 59] : {}".format(list_e))
+        self.assertEqual(list_a,[2, 17])
+        self.assertEqual(list_b,[1, 38])
+        self.assertEqual(list_c,[6, 2])
+        self.assertEqual(list_d,[1, 91])
+        self.assertEqual(list_e,[1, 59])
+
+
+
 
 if __name__ == '__main__':
+
     unittest.main()
