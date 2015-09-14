@@ -1,5 +1,4 @@
 __author__ = 'midorikawakeita'
-import random
 """
 ....... ....... ..Q.... ....... ...Q... ....... .......
 
@@ -18,10 +17,6 @@ import random
 ###Q###
 Q######
 ####Q##
-※Qが入っているマスの上下左右斜めにはおけない
-１リストからQを検索する
-２Qを見つけたら、その上下左右斜めのマスを#に変換
-３
 """
 class N_queen:
     def __init__(self,input):
@@ -65,31 +60,48 @@ class N_queen:
                             break
         return mapping
 
-    """ランダムで１００回"""
-    def search_path(self,c_map):
+
+
+    """0,1,3,5,6行目のどこにＱを入れるかをfor文で書く"""
+    def set_queen(self,c_map):
         map_list = []
-        qnn = 0
-        for e in range(5):
-            for n in [0,1,3,5,6]:
-                count_1 = []
-                for i in range(self.width):
-                    if c_map[n][i] == ".":
-                        count_1.append(i)
-                if count_1:
-                    num = random.choice(count_1)
-                    c_map[n][num] = "Q"
-                else:
-                    pass
-            random_map = self.check(c_map)
-            map_list += "".join(["".join(i) for i in random_map])
+        num_list = []
+        for a in [1,5,6]:
+            for b in [4,5]:
+                for c in [0,5,6]:
+                    for d in [0,1,6]:
+                        for e in [0,4]:
+                            num_list.append([a,b,c,d,e])
+        for i in range(len(num_list)):
+            c_map[0][num_list[i][0]] = "Q"
+            c_map[1][num_list[i][1]] = "Q"
+            c_map[3][num_list[i][2]] = "Q"
+            c_map[5][num_list[i][3]] = "Q"
+            c_map[6][num_list[i][4]] = "Q"
+            d_map = self.check(c_map)
+            map_list.append("".join(["".join(i) for i in d_map]))
+            c_map[0][num_list[i][0]] = "."
+            c_map[1][num_list[i][1]] = "."
+            c_map[3][num_list[i][2]] = "."
+            c_map[5][num_list[i][3]] = "."
+            c_map[6][num_list[i][4]] = "."
+            #print(map_list[i])
+        q_num_list = []
         for i in range(len(map_list)):
-            qn = map_list[i].count("q")
-            if qn > qnn:
-                qnn = qn
-                i_num = i
-        return map_list[i_num]
+            q_num_list.append(map_list[i].count("q"))
+        max_num = max(q_num_list)
+        max_map_list = []
+        for i in range(len(q_num_list)):
+            if q_num_list[i] == max_num:
+                max_map_list.append(map_list[i])
 
+        #print(len(num_list))
+        return max_map_list
 
-
-
-
+if __name__ == "__main__":
+    a = N_queen("....... ....... ..Q.... ....... ...Q... ....... .......")
+    b = a.check(a.base_map)
+    c = a.set_queen(b)
+    for i in range(len(c)):
+        for n in range(7):
+            print(c[i][7 * n:7 * (n + 1)])
