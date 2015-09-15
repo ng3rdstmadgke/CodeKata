@@ -29,6 +29,7 @@ main関数２
     フレームごとの得点を表示する
 """
 class My_Bowling:
+    """投球回数とフレームごとのリストを作成"""
     def __init__(self,input):
         a = input.split(" ")
         self.throw = int(a[0])
@@ -58,6 +59,7 @@ class My_Bowling:
             if flame == 10:
                 break
 
+    """1~8投目までのスコア計算"""
     def normal_score(self,one,two,three):
         if one[0] == 10:#ストライクの時
             if two[0] == 10:#ダブルの場合
@@ -69,6 +71,7 @@ class My_Bowling:
         else:#通常
             return one[0] + one[1]
 
+    """9投目のスコア計算"""
     def nine_score(self,nine,ten):
         if nine[0] == 10:#９フレーム目ストライク
             return 10 + ten[0] + ten[1]
@@ -77,9 +80,11 @@ class My_Bowling:
         else:#９フレーム目通常
             return nine[0] + nine[1]
 
+    """10投目のスコア計算"""
     def ten_score(self,ten):
         return ten[0] + ten[1] + ten[2]
 
+    """得点の合計のみを出す"""
     def main_1(self):
         score = 0
         for i in range(10):
@@ -94,6 +99,7 @@ class My_Bowling:
                 score += c
         return score
 
+    """フレームごとの得点を出す"""
     def main_2(self):
         score_list = []
         score = 0
@@ -113,4 +119,10 @@ class My_Bowling:
         return score_list
 
 
+if __name__ == "__main__":
 
+    a = My_Bowling("19 6 2 0 3 5 5 0 8 10 1 9 3 6 6 4 10 5 5 3")
+    b = a.main_1()
+    c = a.main_2()
+    print(b)
+    [print(str(i),end=" ") for i in c]
